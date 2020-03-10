@@ -1,2 +1,2 @@
 # front-end-Postagens
-Projeto site de postagens para estudo
+Projeto front-end em vuejs, do site de postagens para estudo.
