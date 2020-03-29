@@ -4,17 +4,17 @@
 
             <div class="div-form">
                 <h2>Seja Bem vindo!!</h2>
-                <form class="form" action="http://192.168.0.107:8081/add" method="POST">
+                <form class="form" action="" method="">
                     <h3>Preencha os dados abaixo!</h3>
                     <div class="div-label-input">
                         <label for="">Titulo: </label>
-                        <input type="text" name="titulo">
+                        <input id="inputTitulo" type="text" name="titulo">
                     </div>
                     <div>
                         <label for="">Conteudo: </label>
-                        <textarea name="conteudo" id="" cols="30" rows="10"></textarea>
+                        <textarea id="inputConteudo" name="conteudo" cols="30" rows="10"></textarea>
                     </div>
-                    <button type="submit">Enviar</button>
+                    <button @click="cadastraPost">Enviar</button>
                 </form>
             </div>
     </section>
@@ -22,8 +22,32 @@
 
 
 <script>
+import axios from "axios";
 export default {
-    name: 'Formulario'
+// Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+// Access-Control-Allow-Methods: GET, PUT, POST, DELETE, HEAD, OPTIONS
+// Access-Control-Allow-Origin: *
+// Connection: keep-alive
+// Content-Length: 39
+// Content-Type: application/json; charset=utf-8
+// Date: Sun, 29 Mar 2020 17:18:55 GMT
+// ETag: W/"27-UCM0jcDmUlg3wPAXtHMo38rB+7c"
+// X-Powered-By: Express
+    name: 'Formulario',
+    methods: {
+        cadastraPost(event){
+            event.preventDefault();
+            let titulo = document.getElementById('inputTitulo').value;
+            let conteudo = document.getElementById('inputConteudo').value;
+            axios.post("http://192.168.0.107:8081/add", {titulo: titulo, conteudo: conteudo}).then(()=>{
+                alert("Cadastrado com sucesso!");
+                document.getElementById('inputTitulo').value = "";
+                document.getElementById('inputConteudo').value = "";
+            }).catch(() => {
+                alert("Erro ao cadastrar!");
+            })
+        }
+    }
 };
 </script>
 
@@ -80,7 +104,7 @@ form
 
 .div-form
     border-radius: 10px;
-    margin: 180px 250px 307px 250px;
+    margin: 100px 250px 307px 250px;
 
 button
     padding: 10px 25px 10px 25px;

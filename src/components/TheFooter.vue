@@ -18,11 +18,12 @@ export default {
     height: 60px;
     background-color: #65d;
     color: #fff;
+
     
 
 .div-footer
     text-align: center;
-    padding-top: 30px;
+    padding-top: 25px;
 
 p
     font-size: 16px;

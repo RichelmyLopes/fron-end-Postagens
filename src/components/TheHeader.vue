@@ -43,7 +43,7 @@ export default {
 
 <style lang="sass" scoped>
 .imagem-logo
-    max-width: 150px;
+    max-width: 130px;
 
 .nav
     display: flex;
@@ -71,7 +71,10 @@ export default {
     background-color: #65b;
     padding: 10px;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
+
+.btn:hover
+    background-color: #6666FF;
 
 
     
